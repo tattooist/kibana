@@ -539,8 +539,8 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
       });
     };
 
-    $scope.alert = function(factor) {
-      alert(factor);
+    $scope.highlight = function(color) {
+      $scope.$emit('render', null, color);
     };
 
     // I really don't like this function, too much dom manip. Break out into directive?
@@ -578,9 +578,9 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
         });
 
         // Receive render events
-        scope.$on('render',function(event,d){
+        scope.$on('render',function(event,d,highlightColor){
           data = d || data;
-          render_panel(data);
+          render_panel(data, highlightColor);
         });
 
         var scale = function(series,factor) {
@@ -608,7 +608,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
         };
 
         // Function for rendering panel
-        function render_panel(data) {
+        function render_panel(data, highlightColor) {
           // IE doesn't work without this
           try {
             elem.css({height:scope.panel.height||scope.row.height});
@@ -757,6 +757,15 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             });
 
             newData.sort(function(el1, el2) {
+              if (highlightColor) {
+                if (el1.color === highlightColor && el2.color === highlightColor) {
+                  return 0;
+                } else if (el1.color === highlightColor) {
+                  return 1;
+                } else if (el2.color === highlightColor) {
+                  return -1;
+                }
+              }
               return el2.data[0][1] - el1.data[0][1];
             });
             /** is awesome */
