@@ -464,8 +464,9 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               time_series.addValue(entry.time, value);
             });
 
+            console.log($scope.$parent.$parent.panel);
             if ($scope.$parent.$parent.panel.title.trim() === 'КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ') {
-              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope.$parent.$parent.panel.title, counters);
+              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope, counters);
             }
 
             $scope.legend[i] = {query:q,hits:hits};
