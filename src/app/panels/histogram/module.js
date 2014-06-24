@@ -605,9 +605,6 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
         // Function for rendering panel
         function render_panel(data) {
-          if (scope.panel.title.trim().toLowerCase() === 'количество по статусам заказов') {
-            console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
-          }
           // IE doesn't work without this
           try {
             elem.css({height:scope.panel.height||scope.row.height});
@@ -741,7 +738,9 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               }
               data[i].data = _d;
             }
-
+            if (scope.panel.title.trim().toLowerCase() === 'количество по статусам заказов') {
+              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
+            }
             plot = $.plot(elem, data, options);
 
           } catch(e) {
@@ -765,6 +764,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
         }
 
         var $tooltip = $('<div>');
+        //тут глянуть
         elem.bind("plothover", function (event, pos, item) {
           var group, value, timestamp, interval;
           interval = " per " + (scope.panel.scaleSeconds ? '1s' : scope.panel.interval);
