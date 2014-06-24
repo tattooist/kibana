@@ -742,9 +742,6 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               }
               data[i].data = _d;
             }
-            if (scope.panel.title.trim().toLowerCase() === 'количество по статусам заказов') {
-              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
-            }
 
             /** this shit */
             var newData = [];
