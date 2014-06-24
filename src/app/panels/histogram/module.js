@@ -465,7 +465,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             });
 
             if ($scope.$parent.$parent.panel.title.trim().toLowerCase() === 'КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ'.trim().toLowerCase()) {
-              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope, counters);
+              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope, counters[1403568000000]);
             }
 
             $scope.legend[i] = {query:q,hits:hits};
