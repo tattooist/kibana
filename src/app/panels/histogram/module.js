@@ -464,8 +464,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               time_series.addValue(entry.time, value);
             });
 
-            console.log($scope.$parent.$parent.panel);
-            if ($scope.$parent.$parent.panel.title.trim() === 'КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ') {
+            if ($scope.$parent.$parent.panel.title.trim().toLowerCase() === 'КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ'.trim().toLowerCase()) {
               console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope, counters);
             }
 
