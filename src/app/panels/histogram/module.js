@@ -464,7 +464,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               time_series.addValue(entry.time, value);
             });
 
-            console.log('test', counters);
+            console.log('test', $scope, this, counters);
 
             $scope.legend[i] = {query:q,hits:hits};
 
