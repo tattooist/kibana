@@ -742,6 +742,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
             }
 
+            /** this shit */
             var newData = [];
             data.forEach(function(item) {
               item.data.forEach(function(timeArr) {
@@ -754,6 +755,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             newData.sort(function(el1, el2) {
               return el2.data[0][1] - el1.data[0][1];
             });
+            /** is awesome */
 
             plot = $.plot(elem, newData, options);
 
