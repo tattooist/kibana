@@ -741,7 +741,21 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             if (scope.panel.title.trim().toLowerCase() === 'количество по статусам заказов') {
               console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
             }
-            plot = $.plot(elem, data, options);
+
+            var newData = [];
+            data.forEach(function(item) {
+              item.data.forEach(function(timeArr) {
+                var newObj = _.clone(item);
+                newObj.data = [timeArr];
+                newData.push(newObj);
+              });
+            });
+
+            newData.sort(function(el1, el2) {
+              return el1.data[0][1] - el2.data[0][1];
+            });
+
+            plot = $.plot(elem, newData, options);
 
           } catch(e) {
             // Nothing to do here
