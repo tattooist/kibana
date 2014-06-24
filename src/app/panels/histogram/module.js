@@ -464,10 +464,6 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               time_series.addValue(entry.time, value);
             });
 
-            if ($scope.$parent.$parent.panel.title.trim().toLowerCase() === 'КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ'.trim().toLowerCase()) {
-              console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', $scope, counters[1403568000000]);
-            }
-
             $scope.legend[i] = {query:q,hits:hits};
 
             data[i] = {
@@ -609,6 +605,9 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
         // Function for rendering panel
         function render_panel(data) {
+          if (scope.panel.title.trim().toLowerCase() === 'количество по статусам заказов') {
+            console.log('КОЛИЧЕСТВО ПО СТАТУСАМ ЗАКАЗОВ', data);
+          }
           // IE doesn't work without this
           try {
             elem.css({height:scope.panel.height||scope.row.height});
