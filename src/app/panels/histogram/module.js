@@ -539,6 +539,10 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
       });
     };
 
+    $scope.alert = function(factor) {
+      alert(factor);
+    }
+
     // I really don't like this function, too much dom manip. Break out into directive?
     $scope.populate_modal = function(request) {
       $scope.inspector = angular.toJson(JSON.parse(request.toString()),true);
