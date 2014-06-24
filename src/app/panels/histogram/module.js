@@ -745,7 +745,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
             /** this shit */
             var newData = [];
-            if (!scope.panel.stack) {
+            if (!scope.panel.stack && scope.panel.bars) {
               data.forEach(function(item) {
                 item.data.forEach(function(timeArr) {
                   var newObj = _.clone(item);
