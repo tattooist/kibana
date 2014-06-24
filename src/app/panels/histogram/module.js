@@ -745,26 +745,33 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
             /** this shit */
             var newData = [];
-            data.forEach(function(item) {
-              item.data.forEach(function(timeArr) {
-                var newObj = _.clone(item);
-                newObj.data = [timeArr];
-                newData.push(newObj);
+            if (!scope.panel.stack) {
+              data.forEach(function(item) {
+                item.data.forEach(function(timeArr) {
+                  var newObj = _.clone(item);
+                  newObj.data = [timeArr];
+                  newData.push(newObj);
+                });
               });
-            });
-
-            newData.sort(function(el1, el2) {
-              if (highlightColor) {
-                if (el1.color === highlightColor && el2.color === highlightColor) {
-                  return 0;
-                } else if (el1.color === highlightColor) {
-                  return 1;
-                } else if (el2.color === highlightColor) {
-                  return -1;
+              newData.sort(function(el1, el2) {
+                return el2.data[0][1] - el1.data[0][1];
+              });
+            } else {
+              newData = data.slice();
+            }
+            if (highlightColor) {
+              newData.sort(function(el1, el2) {
+                if (highlightColor) {
+                  if (el1.color === highlightColor && el2.color === highlightColor) {
+                    return 0;
+                  } else if (el1.color === highlightColor) {
+                    return 1;
+                  } else if (el2.color === highlightColor) {
+                    return -1;
+                  }
                 }
-              }
-              return el2.data[0][1] - el1.data[0][1];
-            });
+              });
+            }
             /** is awesome */
 
             plot = $.plot(elem, newData, options);
