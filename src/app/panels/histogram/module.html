@@ -52,7 +52,7 @@
       <!--<a class='small' ng-click='zoom(0.5)'><i class='icon-zoom-in'></i> Zoom In</a>-->
       <a class='small' ng-click='zoom(2)'><i class='icon-zoom-out'></i> Zoom Out</a> |&nbsp
     </span>
-    <span ng-show="panel.legend" ng-click="alert(123)" ng-repeat='series in legend' class="histogram-legend">
+    <span ng-show="panel.legend" ng-click="alert(series.query.color)" ng-repeat='series in legend' class="histogram-legend">
       <i class='icon-circle' ng-style="{color: series.query.color}"></i>
       <span class='small histogram-legend-item'>
         <span ng-if="panel.show_query">{{series.query.alias || series.query.query}}</span>
