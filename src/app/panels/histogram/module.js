@@ -745,7 +745,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
             /** this shit */
             var newData = [];
-            if (!scope.panel.stack && scope.panel.bars) {
+            if (scope.panel.bars) {
               data.forEach(function(item) {
                 item.data.forEach(function(timeArr) {
                   var newObj = _.clone(item);
@@ -753,9 +753,15 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
                   newData.push(newObj);
                 });
               });
-              newData.sort(function(el1, el2) {
-                return el2.data[0][1] - el1.data[0][1];
-              });
+              if (!scope.panel.stack) {
+                newData.sort(function(el1, el2) {
+                  return el2.data[0][1] - el1.data[0][1];
+                });
+              } else {
+                newData.sort(function(el1, el2) {
+                  return el1.data[0][1] - el2.data[0][1];
+                });
+              }
             } else {
               newData = data.slice();
             }
