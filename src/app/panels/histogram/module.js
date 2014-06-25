@@ -753,9 +753,11 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
                   newData.push(newObj);
                 });
               });
-              newData.sort(function(el1, el2) {
-                return el2.data[0][1] - el1.data[0][1];
-              });
+              if (!scope.panel.stack) {
+                newData.sort(function(el1, el2) {
+                  return el2.data[0][1] - el1.data[0][1];
+                });
+              }
             } else {
               newData = data.slice();
             }
