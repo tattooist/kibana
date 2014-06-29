@@ -397,10 +397,13 @@ function (angular, app, _, kbn, moment) {
           // Sort the data
           $scope.data = _.sortBy($scope.data, function(v){
             if(!_.isUndefined(v.sort)) {
+              console.log(111, v.sort);
               return v.sort[0];
             } else {
+              console.log(222, v._score);
               return v._score;
             }
+            console.log(333, v);
           });
 
           // Reverse if needed
