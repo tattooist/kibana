@@ -397,9 +397,7 @@ function (angular, app, _, kbn, moment) {
           // Sort the data
           $scope.data = _.sortBy($scope.data, function(v){
             if(!_.isUndefined(v.sort)) {
-              console.log(v.sort, v._source, $scope.panel.sort[0], $scope.panel);
-              if (v.sort[0] === '\\') {
-                console.log('wtf');
+              if (v.sort[0][0] === '\\') {
                 return v._source[$scope.panel.sort[0]];
               }
               return v.sort[0];
