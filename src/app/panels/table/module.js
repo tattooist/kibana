@@ -399,6 +399,7 @@ function (angular, app, _, kbn, moment) {
             if(!_.isUndefined(v.sort)) {
               console.log(v._source, $scope.panel.sort[0], $scope.panel);
               if (v.sort[0] === '\\') {
+                console.log('wtf');
                 return v._source[$scope.panel.sort[0]];
               }
               return v.sort[0];
