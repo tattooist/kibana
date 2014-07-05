@@ -761,7 +761,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
               // });
             }
 
-            // console.log(newData);
+            console.log(newData);
             // var timeDiff = 86400000;
             // newData.forEach(function(data) {
             //   data.data.forEach(function(ser) {
