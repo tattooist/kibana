@@ -772,6 +772,8 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
                 }
               });
             }
+
+            console.log(newData);
             /** is awesome */
 
             plot = $.plot(elem, newData, options);
