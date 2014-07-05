@@ -126,9 +126,9 @@ function (Interval, _) {
       pairs.unshift([this.start_time, null]);
     }
     if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
-      if (pairs.length > 1) {
-        pairs[pairs.length - 1][1] += pairs[pairs.length - 2][1];
-      }
+      // if (pairs.length > 1) {
+      //   pairs[pairs.length - 1][1] += pairs[pairs.length - 2][1];
+      // }
       pairs.push([this.end_time, null]);
     }
 
