@@ -121,10 +121,10 @@ function (Interval, _) {
     // add those times to the series with null values so the graph will stretch to contain them.
     // Removing, flot 0.8.1's max/min params satisfy this
 
-    if (this.start_time && (pairs.length === 0 || pairs[0][0] > this.start_time)) {
+    if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
       pairs.unshift([this.start_time, null]);
     }
-    if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] < this.end_time)) {
+    if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
       pairs.push([this.end_time, null]);
     }
 
