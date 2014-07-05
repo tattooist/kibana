@@ -746,6 +746,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             /** this shit */
             var newData = data.slice();
             if (highlightColor) {
+              console.log(highlightColor);
               // newData.sort(function(el1, el2) {
               //   if (highlightColor) {
               //     if (el1.color === highlightColor && el2.color === highlightColor) {
