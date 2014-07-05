@@ -122,9 +122,11 @@ function (Interval, _) {
     // Removing, flot 0.8.1's max/min params satisfy this
 
     if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
+      console.log(123123);
       pairs.unshift([this.start_time, null]);
     }
     if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
+      console.log(456456);
       pairs.push([this.end_time, null]);
     }
 
