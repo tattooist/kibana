@@ -96,6 +96,7 @@ function (Interval, _) {
    * @return {array}
    */
   ts.ZeroFilled.prototype.getFlotPairs = function (required_times) {
+    console.log(required_times);
     var times = this.getOrderedTimes(required_times),
       strategy,
       pairs;
