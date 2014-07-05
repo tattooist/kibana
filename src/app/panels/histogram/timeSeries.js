@@ -117,16 +117,18 @@ function (Interval, _) {
       this      // context
     );
 
-    // if the first or last pair is inside either the start or end time,
-    // add those times to the series with null values so the graph will stretch to contain them.
-    // Removing, flot 0.8.1's max/min params satisfy this
-
+    //kibana govno
     if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
-      console.log(123123);
+      if (pairs.length > 1) {
+        pairs[0][0]
+      }
+
       pairs.unshift([this.start_time, null]);
     }
     if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
-      console.log(456456);
+      if (pairs.length > 1) {
+        pairs[pairs.length - 2][1] += pairs[pairs.length - 1][1];
+      }
       pairs.push([this.end_time, null]);
     }
 
