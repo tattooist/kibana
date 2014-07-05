@@ -745,21 +745,22 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
 
             /** this shit */
             var newData = data.slice();
+
             if (highlightColor) {
-              console.log(highlightColor);
-              // newData.sort(function(el1, el2) {
-              //   if (highlightColor) {
-              //     if (el1.color === highlightColor && el2.color === highlightColor) {
-              //       return 0;
-              //     } else if (el1.color === highlightColor) {
-              //       return 1;
-              //     } else if (el2.color === highlightColor) {
-              //       return -1;
-              //     }
-              //   }
-              // });
+              newData.sort(function(el1, el2) {
+                if (highlightColor) {
+                  if (el1.color === highlightColor && el2.color === highlightColor) {
+                    return 0;
+                  } else if (el1.color === highlightColor) {
+                    return 1;
+                  } else if (el2.color === highlightColor) {
+                    return -1;
+                  }
+                }
+              });
             }
 
+            console.log(newData);
             /** is awesome */
 
             plot = $.plot(elem, newData, options);
