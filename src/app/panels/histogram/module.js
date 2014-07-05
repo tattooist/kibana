@@ -747,20 +747,27 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
             var newData = data.slice();
 
             if (highlightColor) {
-              newData.sort(function(el1, el2) {
-                if (highlightColor) {
-                  if (el1.color === highlightColor && el2.color === highlightColor) {
-                    return 0;
-                  } else if (el1.color === highlightColor) {
-                    return 1;
-                  } else if (el2.color === highlightColor) {
-                    return -1;
-                  }
-                }
-              });
+              console.log(highlightColor);
+              // newData.sort(function(el1, el2) {
+              //   if (highlightColor) {
+              //     if (el1.color === highlightColor && el2.color === highlightColor) {
+              //       return 0;
+              //     } else if (el1.color === highlightColor) {
+              //       return 1;
+              //     } else if (el2.color === highlightColor) {
+              //       return -1;
+              //     }
+              //   }
+              // });
             }
 
-            console.log(newData);
+            // console.log(newData);
+            // var timeDiff = 86400000;
+            // newData.forEach(function(data) {
+            //   data.data.forEach(function(ser) {
+
+            //   });
+            // });
             /** is awesome */
 
             plot = $.plot(elem, newData, options);
