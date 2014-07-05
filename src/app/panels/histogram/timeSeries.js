@@ -119,9 +119,9 @@ function (Interval, _) {
 
     //kibana govno
     if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
-      if (pairs.length > 1) {
-        pairs[0][0]
-      }
+      // if (pairs.length > 1) {
+      //   pairs[0][0]
+      // }
 
       pairs.unshift([this.start_time, null]);
     }
