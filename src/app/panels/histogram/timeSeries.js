@@ -119,19 +119,19 @@ function (Interval, _) {
     );
 
     //kibana govno
-    if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
-      // if (pairs.length > 1) {
-      //   pairs[0][0]
-      // }
+    // if (this.start_time && (pairs.length === 0 || pairs[0][0] >= this.start_time)) {
+    //   // if (pairs.length > 1) {
+    //   //   pairs[0][0]
+    //   // }
 
-      pairs.unshift([this.start_time, null]);
-    }
-    if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
-      // if (pairs.length > 1) {
-      //   pairs[pairs.length - 1][1] += pairs[pairs.length - 2][1];
-      // }
-      pairs.push([this.end_time, null]);
-    }
+    //   pairs.unshift([this.start_time, null]);
+    // }
+    // if (this.end_time && (pairs.length === 0 || pairs[pairs.length - 1][0] <= this.end_time)) {
+    //   // if (pairs.length > 1) {
+    //   //   pairs[pairs.length - 1][1] += pairs[pairs.length - 2][1];
+    //   // }
+    //   pairs.push([this.end_time, null]);
+    // }
 
 
     return pairs;

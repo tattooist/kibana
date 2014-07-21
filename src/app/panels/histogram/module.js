@@ -362,7 +362,7 @@ function (angular, app, $, _, kbn, moment, timeSeries, numeral) {
         }
         facet = facet.interval(_interval).facetFilter($scope.ejs.QueryFilter(query));
         request = request.facet(facet)
-          .size($scope.panel.annotate.enable ? $scope.panel.annotate.size : 0);
+          .size($scope.panel.annotate.enable ? $scope.panel.annotate.size : 20000);
       });
 
       if($scope.panel.annotate.enable) {
